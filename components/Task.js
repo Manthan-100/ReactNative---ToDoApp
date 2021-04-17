@@ -1,20 +1,25 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, Button, TouchableOpacity } from "react-native";
+import styles from "../stylesheet";
 
 class Task extends Component {
+  removeItem = () => {
+    this.props.removeItem(this.props.id);
+  };
   render() {
     return (
-      <View>
-        <Text styel={style.item}>{this.props.text}</Text>
+      <View style={styles.task_box}>
+        <View style={styles.task_box_square}></View>
+        <Text style={styles.task_box_text}>{this.props.text}</Text>
+        <TouchableOpacity
+          style={styles.task_box_remove}
+          onPress={this.removeItem}
+        >
+          <Text>X</Text>
+        </TouchableOpacity>
       </View>
     );
   }
 }
-
-const style = StyleSheet.create({
-  item: {
-    marginTop: 10,
-  },
-});
 
 export default Task;
