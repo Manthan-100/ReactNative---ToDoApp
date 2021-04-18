@@ -19,13 +19,16 @@ class App extends Component {
   };
   // Function to add item
   addItem = () => {
+    if (this.state.input === "") {
+      return;
+    }
     const originaTasks = this.state.tasks;
     const task = {
       id: Date(),
       text: this.state.input,
     };
     originaTasks.push(task);
-    this.setState({ task: originaTasks });
+    this.setState({ task: originaTasks, input: "" });
     this.textInput.clear();
   };
   // Function to remove item
