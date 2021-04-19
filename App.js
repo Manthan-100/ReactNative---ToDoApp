@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   View,
   ScrollView,
+  Alert,
 } from "react-native";
 import Task from "./components/Task";
 import styles from "./stylesheet";
@@ -20,6 +21,7 @@ class App extends Component {
   // Function to add item
   addItem = () => {
     if (this.state.input === "") {
+      Alert.alert("Please add some task!");
       return;
     }
     const originaTasks = this.state.tasks;
